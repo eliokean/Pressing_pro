@@ -6,6 +6,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\TextColumn;
 
 class VehiculesTable
 {
@@ -14,6 +15,11 @@ class VehiculesTable
         return $table
             ->columns([
                 //
+                TextColumn::make('type')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('coefficient')
+                    ->sortable(),
             ])
             ->filters([
                 //

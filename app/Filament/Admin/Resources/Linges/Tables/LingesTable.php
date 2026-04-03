@@ -6,6 +6,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\TextColumn;
 
 class LingesTable
 {
@@ -14,6 +15,19 @@ class LingesTable
         return $table
             ->columns([
                 //
+                TextColumn::make('nom')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('categorie')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('prix')
+                    ->money('XOF')
+                    ->sortable(),
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
